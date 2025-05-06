@@ -8,3 +8,7 @@ export interface ToolbarConfigItem {
   inputs?: Record<string, any>;
   outputs?: Record<string, any>;
 }
+
+export interface DynamicConfigItem extends ToolbarConfigItem {
+  children?: DynamicConfigItem[];
+}

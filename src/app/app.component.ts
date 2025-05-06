@@ -11,8 +11,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { LAYOUT_ONE } from './widget/toolbar.config';
-import { ToolbarOneComponent } from './toolbars/toolbar-one/toolbar-w-one.component';
+import { LAYOUT_THREE, LAYOUT_TWO } from './widget/toolbar.config';
+import { ToolbarWidgetTwoComponent } from './toolbars/toolbar-two/toolbar-w-two.component';
+import { ToolbarWidgetThreeComponent } from './toolbars/toolbar-three/toolbar-w-three.component';
 
 @Component({
   selector: 'app-root',
@@ -30,15 +31,52 @@ import { ToolbarOneComponent } from './toolbars/toolbar-one/toolbar-w-one.compon
     MatTableModule,
     MatDialogModule,
     MatSnackBarModule,
-    ToolbarOneComponent,
+    ToolbarWidgetTwoComponent,
+    ToolbarWidgetThreeComponent,
   ],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  toolbarConfig = LAYOUT_ONE;
+  toolbarConfig_two = LAYOUT_TWO;
+  toolbarConfig_three = LAYOUT_THREE;
 
-  inputs = {
+  inputs_two = {
     editMode: false,
+    selectedCategory: 'news',
+    categories: [
+      { label: 'Ala aala', value: 'alaa' },
+      { label: 'Tech', value: 'tech' },
+      { label: 'Sports', value: 'sports' },
+      { label: 'Sports 2', value: 'sports2' },
+    ],
+  };
+
+  outputs_two = {
+    refreshData: () =>
+      console.log(
+        '%c Refreshing LAYOUT_TWO ... ',
+        'background: white; color: green; font-weight: bold;'
+      ),
+    toggleEditMode: (checked: boolean) =>
+      console.log(
+        '%c Edit mode: ' + checked,
+        'background: white; color: green; font-weight: bold;'
+      ),
+    changeCategory: (val: string) =>
+      console.log(
+        '%c LAYOUT_TWO New category: ' + val,
+        'background: white; color: green; font-weight: bold;'
+      ),
+    changeCategory2: (val: string) =>
+      console.log(
+        '%c LAYOUT_TWO New category 2: ' + val,
+        'background: white; color: green; font-weight: bold;'
+      ),
+  };
+
+  inputs_three = {
+    editMode: false,
+    darkMode: false,
     selectedCategory: 'news',
     categories: [
       { label: 'News', value: 'news' },
@@ -47,9 +85,26 @@ export class AppComponent {
     ],
   };
 
-  outputs = {
-    refreshData: () => console.log('Refreshing...'),
-    toggleEditMode: (checked: boolean) => console.log('Edit mode:', checked),
-    changeCategory: (val: string) => console.log('New category:', val),
+  outputs_three = {
+    refreshData: () =>
+      console.log(
+        '%c Refreshing LAYOUT_THREE ... ',
+        'background: white; color: blue; font-weight: bold;'
+      ),
+    toggleEditMode: (checked: boolean) =>
+      console.log(
+        '%c Edit mode: ' + checked,
+        'background: white; color: blue; font-weight: bold;'
+      ),
+    toggleDarkMode: (checked: boolean) =>
+      console.log(
+        '%c Dark mode: ' + checked,
+        'background: white; color: blue; font-weight: bold;'
+      ),
+    changeCategory: (val: string) =>
+      console.log(
+        '%c LAYOUT_THREE New category: ' + val,
+        'background: white; color: blue; font-weight: bold;'
+      ),
   };
 }
