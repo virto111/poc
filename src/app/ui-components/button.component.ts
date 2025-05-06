@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-toolbar-button',
+  selector: 'toolbar-button',
   standalone: true,
   imports: [MatButtonModule, MatIconModule],
   templateUrl: './button.component.html',

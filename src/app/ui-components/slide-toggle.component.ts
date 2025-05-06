@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
-  selector: 'app-toolbar-slide-toggle',
+  selector: 'toolbar-slide-toggle',
   standalone: true,
   imports: [MatSlideToggleModule],
   templateUrl: './slide-toggle.component.html',
@@ -10,7 +10,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 export class ToolbarSlideToggleComponent {
   @Input() label!: string;
   @Input() checked = false;
-  @Input() color?: 'primary' | 'accent' | 'warn' = 'primary';
+  @Input() color?: 'primary' | 'accent' | 'warn' = 'warn';
 
   @Output() change = new EventEmitter<boolean>();
 }

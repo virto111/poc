@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
-  selector: 'app-toolbar-checkbox',
+  selector: 'toolbar-checkbox',
   standalone: true,
   imports: [MatCheckboxModule],
   templateUrl: './checkbox.component.html',

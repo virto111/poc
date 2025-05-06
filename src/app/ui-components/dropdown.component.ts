@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 
 @Component({
-  selector: 'app-toolbar-dropdown',
+  selector: 'toolbar-dropdown',
   standalone: true,
   imports: [MatSelectModule, NgForOf],
   templateUrl: './dropdown.component.html',

@@ -18,12 +18,6 @@ export const LAYOUT_TWO = [
     outputs: { click: 'refreshData' },
   },
   {
-    id: 'refresh',
-    componentType: 'button' as ToolbarComponentType,
-    inputs: { label: 'Refresh', icon: 'refresh' },
-    outputs: { click: 'refreshData' },
-  },
-  {
     id: 'editMode',
     componentType: 'checkbox' as ToolbarComponentType,
     inputs: { label: 'Edit Mode', checked: 'editMode' },

@@ -41,10 +41,10 @@ export class AppComponent {
   toolbarConfig_three = LAYOUT_THREE;
 
   inputs_two = {
-    editMode: false,
+    editMode: true,
     selectedCategory: 'news',
     categories: [
-      { label: 'Ala aala', value: 'alaa' },
+      { label: 'Ala bala', value: 'alaa' },
       { label: 'Tech', value: 'tech' },
       { label: 'Sports', value: 'sports' },
       { label: 'Sports 2', value: 'sports2' },
