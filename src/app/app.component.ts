@@ -11,9 +11,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { LAYOUT_THREE, LAYOUT_TWO } from './widget/toolbar.config';
 import { ToolbarWidgetTwoComponent } from './toolbars/toolbar-two/toolbar-w-two.component';
 import { ToolbarWidgetThreeComponent } from './toolbars/toolbar-three/toolbar-w-three.component';
+import { DynamicConfigItem } from './models';
 
 @Component({
   selector: 'app-root',
@@ -37,74 +37,110 @@ import { ToolbarWidgetThreeComponent } from './toolbars/toolbar-three/toolbar-w-
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  toolbarConfig_two = LAYOUT_TWO;
-  toolbarConfig_three = LAYOUT_THREE;
+  toolbarConfig_two: DynamicConfigItem[] = [
+    {
+      id: 'filter',
+      componentType: 'dropdown',
+      inputs: {
+        label: 'Category 1',
+        options: [
+          { label: 'Ala bala', value: 'alaa' },
+          { label: 'Tech', value: 'tech' },
+          { label: 'Sports', value: 'sports' },
+          { label: 'Sports 2', value: 'sports2' },
+        ],
+        selected: 'alabala',
+      },
+      outputs: {
+        selectionChange: (val: string) =>
+          console.log(
+            '%c LAYOUT_TWO New category: ' + val,
+            'background: white; color: green; font-weight: bold;'
+          ),
+      },
+    },
+    {
+      id: 'refresh',
+      componentType: 'button',
+      inputs: { label: 'Refresh', icon: 'refresh' },
+      outputs: {
+        click: () =>
+          console.log(
+            '%c Refreshing LAYOUT_TWO ... ',
+            'background: white; color: green; font-weight: bold;'
+          ),
+      },
+    },
+    {
+      id: 'editMode',
+      componentType: 'checkbox',
+      inputs: { label: 'Edit Mode', checked: true },
+      outputs: {
+        change: (checked: boolean) =>
+          console.log(
+            '%c Edit mode: ' + checked,
+            'background: white; color: green; font-weight: bold;'
+          ),
+      },
+    },
+  ];
 
-  inputs_two = {
-    editMode: true,
-    selectedCategory: 'news',
-    categories: [
-      { label: 'Ala bala', value: 'alaa' },
-      { label: 'Tech', value: 'tech' },
-      { label: 'Sports', value: 'sports' },
-      { label: 'Sports 2', value: 'sports2' },
-    ],
-  };
-
-  outputs_two = {
-    refreshData: () =>
-      console.log(
-        '%c Refreshing LAYOUT_TWO ... ',
-        'background: white; color: green; font-weight: bold;'
-      ),
-    toggleEditMode: (checked: boolean) =>
-      console.log(
-        '%c Edit mode: ' + checked,
-        'background: white; color: green; font-weight: bold;'
-      ),
-    changeCategory: (val: string) =>
-      console.log(
-        '%c LAYOUT_TWO New category: ' + val,
-        'background: white; color: green; font-weight: bold;'
-      ),
-    changeCategory2: (val: string) =>
-      console.log(
-        '%c LAYOUT_TWO New category 2: ' + val,
-        'background: white; color: green; font-weight: bold;'
-      ),
-  };
-
-  inputs_three = {
-    editMode: false,
-    darkMode: false,
-    selectedCategory: 'news',
-    categories: [
-      { label: 'News', value: 'news' },
-      { label: 'Tech', value: 'tech' },
-      { label: 'Sports', value: 'sports' },
-    ],
-  };
-
-  outputs_three = {
-    refreshData: () =>
-      console.log(
-        '%c Refreshing LAYOUT_THREE ... ',
-        'background: white; color: blue; font-weight: bold;'
-      ),
-    toggleEditMode: (checked: boolean) =>
-      console.log(
-        '%c Edit mode: ' + checked,
-        'background: white; color: blue; font-weight: bold;'
-      ),
-    toggleDarkMode: (checked: boolean) =>
-      console.log(
-        '%c Dark mode: ' + checked,
-        'background: white; color: blue; font-weight: bold;'
-      ),
-    changeCategory: (val: string) =>
-      console.log(
-        '%c LAYOUT_THREE New category: ' + val,
-        'background: white; color: blue; font-weight: bold;'
-      ),
-  };
+  toolbarConfig_three: DynamicConfigItem[] = [
+    {
+      id: 'editMode',
+      componentType: 'checkbox',
+      inputs: { label: 'Edit Mode', checked: false },
+      outputs: {
+        change: (checked: boolean) =>
+          console.log(
+            '%c Edit mode: ' + checked,
+            'background: white; color: blue; font-weight: bold;'
+          ),
+      },
+    },
+    {
+      id: 'darkMode',
+      componentType: 'slideToggle',
+      inputs: { label: 'Dark Mode', checked: false, color: 'accent' },
+      outputs: {
+        change: (checked: boolean) =>
+          console.log(
+            '%c Dark mode: ' + checked,
+            'background: white; color: blue; font-weight: bold;'
+          ),
+      },
+    },
+    {
+      id: 'filter',
+      componentType: 'dropdown',
+      inputs: {
+        label: 'Category',
+        options: [
+          { label: 'News', value: 'news' },
+          { label: 'Tech', value: 'tech' },
+          { label: 'Sports', value: 'sports' },
+        ],
+        selected: 'news',
+      },
+      outputs: {
+        selectionChange: (val: string) =>
+          console.log(
+            '%c LAYOUT_THREE New category: ' + val,
+            'background: white; color: blue; font-weight: bold;'
+          ),
+      },
+    },
+    {
+      id: 'refresh',
+      componentType: 'button',
+      inputs: { label: 'Refresh', icon: 'refresh' },
+      outputs: {
+        click: () =>
+          console.log(
+            '%c Refreshing LAYOUT_THREE ... ',
+            'background: white; color: blue; font-weight: bold;'
+          ),
+      },
+    },
+  ];
 }

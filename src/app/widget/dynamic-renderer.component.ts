@@ -15,8 +15,6 @@ export abstract class DynamicComponentRenderer
   implements AfterViewInit, OnChanges
 {
   @Input() config: DynamicConfigItem[] = [];
-  @Input() inputBindings: Record<string, any> = {};
-  @Input() outputBindings: Record<string, Function> = {};
 
   @ViewChild('container', { read: ViewContainerRef })
   container!: ViewContainerRef;
@@ -55,33 +53,23 @@ export abstract class DynamicComponentRenderer
 
     const componentRef = this.container.createComponent<any>(componentType);
 
-    // * bind @Inputs()
+    // * bind @Inputs() - direct values only
     if (item.inputs) {
       for (const [key, value] of Object.entries(item.inputs)) {
-        const inputValue =
-          typeof value === 'string' && this.inputBindings[value] !== undefined
-            ? this.inputBindings[value]
-            : value;
-
-        componentRef.setInput(key, inputValue);
+        componentRef.setInput(key, value);
       }
     }
 
-    // * bind @Outputs()
+    // * bind @Outputs() - direct function handlers only
     if (item.outputs) {
-      for (const [eventName, handlerName] of Object.entries(item.outputs)) {
-        if (
-          typeof handlerName === 'string' &&
-          componentRef.instance[eventName]
-        ) {
-          componentRef.instance[eventName].subscribe((val: any) => {
-            this.outputBindings[handlerName]?.(val);
-          });
+      for (const [eventName, handler] of Object.entries(item.outputs)) {
+        if (componentRef.instance[eventName] && typeof handler === 'function') {
+          componentRef.instance[eventName].subscribe(handler);
         }
       }
     }
 
-    // ! Handle nested components if needed... some day
+    // ! Handle nested components if needed... some days
     if (item.children && item.children.length > 0) {
     }
   }

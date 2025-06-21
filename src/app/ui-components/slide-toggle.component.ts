@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'toolbar-slide-toggle',
   standalone: true,
-  imports: [MatSlideToggleModule],
+  imports: [CommonModule, MatSlideToggleModule],
   templateUrl: './slide-toggle.component.html',
 })
 export class ToolbarSlideToggleComponent {
