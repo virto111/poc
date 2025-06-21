@@ -1,15 +1,4 @@
 import { Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatTableModule } from '@angular/material/table';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { ToolbarWidgetTwoComponent } from './toolbars/toolbar-two/toolbar-w-two.component';
 import { ToolbarWidgetThreeComponent } from './toolbars/toolbar-three/toolbar-w-three.component';
@@ -18,22 +7,7 @@ import { DynamicConfigItem } from './models';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    MatToolbarModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatCardModule,
-    MatTableModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    ToolbarWidgetTwoComponent,
-    ToolbarWidgetThreeComponent,
-  ],
+  imports: [ToolbarWidgetTwoComponent, ToolbarWidgetThreeComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
@@ -62,7 +36,7 @@ export class AppComponent {
     {
       id: 'refresh',
       componentType: 'button',
-      inputs: { label: 'Refresh', icon: 'refresh' },
+      inputs: { label: 'Refresh', icon: 'pi pi-refresh' },
       outputs: {
         click: () =>
           console.log(
@@ -133,7 +107,7 @@ export class AppComponent {
     {
       id: 'refresh',
       componentType: 'button',
-      inputs: { label: 'Refresh', icon: 'refresh' },
+      inputs: { label: 'Refresh', icon: 'pi pi-refresh' },
       outputs: {
         click: () =>
           console.log(
