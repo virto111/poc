@@ -1,3 +1,12 @@
+<div class="app-header">
+  <p-button 
+    [label]="isDarkMode ? 'Light Mode' : 'Dark Mode'" 
+    [icon]="isDarkMode ? 'pi pi-sun' : 'pi pi-moon'"
+    [outlined]="true"
+    (onClick)="toggleTheme()">
+  </p-button>
+</div>
+
 <toolbar-two [config]="toolbarConfig_two" />
 <toolbar-three [config]="toolbarConfig_three" />
 <toolbar-three [config]="toolbarConfig_three" />

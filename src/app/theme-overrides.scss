@@ -1,0 +1,61 @@
+:root {
+  // * Primary color adjustments
+  --p-primary-color: #3f51b5;
+  --p-primary-hover-color: #303f9f;
+  --p-primary-active-color: #283593;
+
+  // * Surface colors
+  // --p-surface-50: #f8f9fa;
+  // --p-surface-100: #f1f3f5;
+  // --p-surface-200: #e9ecef;
+
+  // * Component-specific tokens
+  --p-button-padding-x: 6px;
+  --p-button-padding-y: 4px;
+  --p-button-border-radius: 2px;
+
+  // * Toolbar customization
+  // --p-toolbar-background: var(--p-surface-50);
+  // --p-toolbar-border-color: var(--p-surface-200);
+  --p-toolbar-padding: 6px;
+
+  // * Card customization
+  --p-card-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --p-card-border-radius: 0.5rem;
+
+  // * Form components
+  --p-inputtext-padding-x: 0.75rem;
+  --p-inputtext-padding-y: 0.5rem;
+  --p-checkbox-width: 1.25rem;
+  --p-checkbox-height: 1.25rem;
+}
+
+// ! Dark mode overrides
+.dark-mode {
+  --p-primary-color: #5c6bc0;
+  --p-primary-hover-color: #7986cb;
+  --p-primary-active-color: #3949ab;
+
+  // --p-surface-0: #121212;
+  // --p-surface-50: #1e1e1e;
+  // --p-surface-100: #2a2a2a;
+  // --p-surface-200: #363636;
+
+  // --p-toolbar-background: var(--p-surface-100);
+  // --p-toolbar-border-color: var(--p-surface-200);
+
+  --p-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+// Component-specific styling
+.p-toolbar {
+  gap: 0.75rem;
+
+  .p-toolbar-group-start {
+    gap: 0.5rem;
+  }
+}
+
+.p-card {
+  margin-bottom: 1rem;
+}

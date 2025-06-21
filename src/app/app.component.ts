@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 
 import { ToolbarWidgetTwoComponent } from './toolbars/toolbar-two/toolbar-w-two.component';
 import { ToolbarWidgetThreeComponent } from './toolbars/toolbar-three/toolbar-w-three.component';
@@ -7,10 +9,21 @@ import { DynamicConfigItem } from './models';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ToolbarWidgetTwoComponent, ToolbarWidgetThreeComponent],
+  imports: [CommonModule, ButtonModule, ToolbarWidgetTwoComponent, ToolbarWidgetThreeComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
+  isDarkMode = false;
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    const element = document.documentElement;
+    if (this.isDarkMode) {
+      element.classList.add('dark-mode');
+    } else {
+      element.classList.remove('dark-mode');
+    }
+  }
   toolbarConfig_two: DynamicConfigItem[] = [
     {
       id: 'filter',
