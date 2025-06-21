@@ -1,11 +1,12 @@
 import { CommonModule, NgForOf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatSelectModule } from '@angular/material/select';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'toolbar-dropdown',
   standalone: true,
-  imports: [CommonModule, MatSelectModule, NgForOf],
+  imports: [CommonModule, DropdownModule, FormsModule],
   templateUrl: './dropdown.component.html',
 })
 export class ToolbarDropdownComponent {

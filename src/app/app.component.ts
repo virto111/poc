@@ -23,7 +23,7 @@ export class AppComponent {
           { label: 'Sports', value: 'sports' },
           { label: 'Sports 2', value: 'sports2' },
         ],
-        selected: 'alabala',
+        selected: 'alaa',
       },
       outputs: {
         selectionChange: (val: string) =>
@@ -75,7 +75,7 @@ export class AppComponent {
     {
       id: 'darkMode',
       componentType: 'slideToggle',
-      inputs: { label: 'Dark Mode', checked: false, color: 'accent' },
+      inputs: { label: 'Dark Mode', checked: false },
       outputs: {
         change: (checked: boolean) =>
           console.log(

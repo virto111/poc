@@ -1,3 +1,6 @@
-<mat-checkbox [checked]="checked" (change)="change.emit($event.checked)">{{
-  label
-}}</mat-checkbox>
+<p-checkbox 
+  [(ngModel)]="checked" 
+  [binary]="true"
+  (onChange)="change.emit($event.checked)">
+</p-checkbox>
+<label>{{ label }}</label>
