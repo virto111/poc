@@ -1,12 +1,22 @@
 <div class="app-header">
-  <p-button 
-    [label]="isDarkMode ? 'Light Mode' : 'Dark Mode'" 
+  <p-button
+    [label]="isDarkMode ? 'Light Mode' : 'Dark Mode'"
     [icon]="isDarkMode ? 'pi pi-sun' : 'pi pi-moon'"
     [outlined]="true"
-    (onClick)="toggleTheme()">
+    (onClick)="toggleTheme()"
+  >
   </p-button>
 </div>
 
+<!-- ! maybe we need to add class here for vertical and horizontal toolbars -->
 <toolbar-two [config]="toolbarConfig_two" />
 <toolbar-three [config]="toolbarConfig_three" />
 <toolbar-three [config]="toolbarConfig_three" />
+
+<!-- see something like this:
+<div class="card flex justify-center">
+    <div class="flex flex-col gap-4">
+      ...
+    </div>
+  </div>
+ -->
